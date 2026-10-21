@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>マイセブン銀行</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f6f8;color:#333;font-family:-apple-system,BlinkMacSystemFont,sans-serif}header{background:#f58220;color:white;padding:22px 18px;font-size:21px;font-weight:bold}main{max-width:520px;margin:auto;padding:16px 14px 90px}.card{background:white;border-radius:16px;padding:20px;margin-bottom:14px}.muted{font-size:13px;color:#777}.balance{font-size:34px;font-weight:bold;margin:10px 0}.title{font-size:17px;font-weight:bold;margin-bottom:14px}.tx{display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-top:1px solid #eee;font-size:14px}.date{font-size:12px;color:#777;margin-top:5px}.amount{font-weight:bold;white-space:nowrap}.plus{color:#17834a}nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:white;border-top:1px solid #eee}nav button{flex:1;border:0;background:white;padding:12px 2px;color:#777;font-size:12px}nav button.active{color:#f58220;font-weight:bold}.ico{display:block;font-size:20px;margin-bottom:4px}.info{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #eee;font-size:14px}.notice{font-size:12px;line-height:1.7;color:#777;background:#fff8f1;padding:14px;border-radius:12px}.hidden{display:none}
+</style>
+</head>
+<body>
+<header>マイセブン銀行</header>
+<main>
+<section id="home"><div class="card"><div class="muted">普通預金残高</div><div class="balance">72,800 円</div><div class="muted">口座残高</div></div><div class="card"><div class="title">最近の入出金</div><div id="recent"></div><button onclick="show('transactions')" style="width:100%;padding:12px;border:0;border-radius:10px;background:#fff4e9;color:#d96b0b">入出金明細をすべて見る ›</button></div></section>
+<section id="transactions" class="hidden"><div class="card"><div class="title">入出金明細</div><div id="alltx"></div></div></section>
+<section id="account" class="hidden"><div class="card"><div class="title">口座情報</div><div class="info"><span>口座種別</span><b>普通預金</b></div><div class="info"><span>支店名</span><b>マイ支店（仮）</b></div><div class="info"><span>口座番号</span><b>****1234</b></div><div class="info"><span>口座名義</span><b>ご本人名義</b></div></div><div class="notice">このページは個人用の画面デモです。セブン銀行の公式アプリではなく、実際の銀行口座や金融機関とは接続されていません。表示内容はサンプルデータです。</div></section>
+</main>
+<nav><button class="active" data-page="home" onclick="show('home')"><span class="ico">⌂</span>ホーム</button><button data-page="transactions" onclick="show('transactions')"><span class="ico">▤</span>入出金明細</button><button data-page="account" onclick="show('account')"><span class="ico">◎</span>口座情報</button></nav>
+<script>
+const txs=[["ATM支払","2026/10/06","−100,000円",false],["ATM支払","2026/10/03","−430,000円",false],["ATM支払","2026/10/02","−100,000円",false],["ATM支払","2026/10/02","−98,000円",false],["振込 ヘヤ ショウタ","2026/09/30","+777,000円",true]];
+function row(t){return '<div class="tx"><div><b>'+t[0]+'</b><div class="date">'+t[1]+'</div></div><div class="amount '+(t[3]?'plus':'')+'">'+t[2]+'</div></div>'}
+document.getElementById('recent').innerHTML=txs.slice(0,3).map(row).join('');
+document.getElementById('alltx').innerHTML=txs.map(row).join('');
+function show(p){['home','transactions','account'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==p));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===p));window.scrollTo(0,0)}
+</script>
+</body>
+</html>
