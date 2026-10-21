@@ -6,114 +6,31 @@
 <meta name="theme-color" content="#f58220">
 <title>Myセブン銀行</title>
 <style>
-*{box-sizing:border-box}
-:root{--orange:#f58220;--ink:#242424;--muted:#898989;--line:#eeeeee}
-body{margin:0;background:#f5f6f8;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
-header{background:linear-gradient(135deg,#ff9b35,#f58220 65%,#e96b0b);color:white;padding:22px 21px 29px;border-radius:0 0 27px 27px}
-.brand{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:800;letter-spacing:-.5px}
-.logo{width:39px;height:39px;background:#fff;color:#e87510;border-radius:12px;display:grid;place-items:center;font-size:23px;font-weight:900;box-shadow:0 3px 8px #a74b1725}
-.tagline{font-size:11px;margin-top:7px;opacity:.92;letter-spacing:.3px}
-.topline{display:flex;justify-content:space-between;align-items:center}
-.demo{font-size:9px;letter-spacing:1px;border:1px solid #ffffff70;border-radius:20px;padding:6px 8px;margin-top:17px;display:inline-block}
-main{padding:0 16px 105px}
-.balance-card{position:relative;background:#fff;margin:-12px 0 0;padding:21px 20px 19px;border-radius:20px;box-shadow:0 7px 25px #2020200b}
-.label{font-size:12px;color:var(--muted)}
-.balance{font-size:35px;font-weight:780;letter-spacing:-1px;margin:8px 0 20px}
-.balance small{font-size:18px;margin-right:2px}
-.accountline{border-top:1px solid #f0f0f0;padding-top:15px;display:flex;justify-content:space-between;align-items:center}
-.accountnum{font-size:21px;font-weight:750;letter-spacing:1px;margin-top:4px}
-.type-pill{font-size:11px;color:#d86b10;background:#fff1e4;padding:7px 10px;border-radius:20px}
-.heading{font-size:16px;font-weight:750;margin:24px 2px 13px}
-.shortcuts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.shortcut{border:0;background:#fff;border-radius:16px;min-height:94px;padding:14px 3px;color:#333;font-size:11px;box-shadow:0 3px 12px #00000005}
-.shortcut .ico{width:35px;height:35px;border-radius:12px;background:#fff0e3;color:#e87817;display:grid;place-items:center;margin:0 auto 9px;font-size:20px;font-weight:700}
-.panel{background:#fff;border-radius:17px;padding:2px 15px;box-shadow:0 3px 12px #00000004}
-.tx{display:flex;align-items:center;gap:11px;padding:15px 0;border-bottom:1px solid #f0f0f0}
-.tx:last-child{border-bottom:0}
-.txicon{width:41px;height:41px;flex-shrink:0;border-radius:50%;background:#fff1e5;color:#e87817;display:grid;place-items:center;font-size:19px}
-.txinfo{flex:1;min-width:0}
-.txname{font-size:13px;font-weight:650;line-height:1.5}
-.txdate{font-size:10px;color:#969696;margin-top:5px}
-.amount{font-size:13px;font-weight:750;white-space:nowrap}
-.plus{color:#18845b}
-.page{display:none}
-.page.active{display:block}
-.info{display:flex;justify-content:space-between;gap:10px;padding:17px 0;border-bottom:1px solid #f0f0f0;font-size:13px}
-.info:last-child{border:0}
-.info strong{text-align:right;font-weight:650}
-.notice{font-size:10px;line-height:1.8;color:#999;text-align:center;padding:19px 6px}
-.sectionnote{font-size:11px;color:#888;margin:-4px 2px 13px}
-nav{position:fixed;z-index:5;left:0;right:0;bottom:0;background:#ffffffed;backdrop-filter:blur(14px);border-top:1px solid #eee;display:grid;grid-template-columns:repeat(3,1fr);padding:9px 0 calc(8px + env(safe-area-inset-bottom))}
-nav button{border:0;background:transparent;color:#999;font-size:10px;padding:3px 0}
-nav .navico{display:block;font-size:21px;margin-bottom:4px}
-nav button.active{color:var(--orange);font-weight:750}
-button{cursor:pointer}
+*{box-sizing:border-box}body{margin:0;background:#f3f4f6;color:#252525;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif}header{background:#fff;padding:14px 18px 17px;border-bottom:1px solid #eee}.top{display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:9px;font-size:20px;font-weight:800}.logo{width:38px;height:38px;border-radius:9px;background:#fff;color:#f58220;border:3px solid #f58220;display:grid;place-items:center;font-size:23px;font-weight:900}.menu{font-size:24px;color:#555}.sub{font-size:10px;color:#888;margin-top:4px;margin-left:47px}.demo{font-size:9px;color:#a95008;background:#fff1e3;padding:5px 8px;border-radius:5px;margin-top:12px;display:inline-block;letter-spacing:.5px}.hero{background:linear-gradient(125deg,#f79327,#f58220 60%,#ed6e0b);padding:20px 18px 30px;color:white}.hello{font-size:13px;opacity:.95}.hero-title{font-size:16px;font-weight:700;margin-top:6px}.money-card{margin:-16px 14px 0;background:#fff;border-radius:16px;padding:20px 18px;box-shadow:0 5px 18px #0000000c;position:relative}.caption{font-size:12px;color:#777}.balance{font-size:34px;font-weight:750;letter-spacing:-.7px;margin:8px 0 17px}.balance small{font-size:17px}.line{border-top:1px solid #eee;padding-top:14px;display:flex;justify-content:space-between;align-items:center}.number{font-size:20px;font-weight:750;letter-spacing:1px;margin-top:4px}.pill{background:#fff0e2;color:#d96d12;font-size:11px;padding:6px 9px;border-radius:5px}.main{padding:0 14px 100px}.title{font-size:16px;font-weight:750;margin:23px 3px 12px}.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.quick button{border:0;background:#fff;border-radius:13px;padding:14px 3px 13px;box-shadow:0 2px 9px #00000006;color:#333;font-size:11px}.ico{width:36px;height:36px;margin:0 auto 9px;border-radius:50%;background:#fff0e4;color:#e87512;display:grid;place-items:center;font-size:21px}.panel{background:white;border-radius:14px;padding:0 14px;box-shadow:0 2px 8px #00000004}.tx{display:flex;align-items:center;gap:11px;padding:14px 0;border-bottom:1px solid #eee}.tx:last-child{border-bottom:0}.txico{width:39px;height:39px;flex-shrink:0;background:#fff0e4;color:#e87512;border-radius:50%;display:grid;place-items:center;font-size:18px}.txinfo{flex:1;min-width:0}.txname{font-size:13px;font-weight:650}.date{font-size:10px;color:#888;margin-top:5px}.amount{font-size:13px;font-weight:750;white-space:nowrap}.plus{color:#13815b}.more{text-align:center;color:#e87512;padding:14px;font-size:12px;font-weight:650}.page{display:none}.page.active{display:block}.info{display:flex;justify-content:space-between;gap:12px;padding:17px 0;border-bottom:1px solid #eee;font-size:13px}.info:last-child{border:0}.info strong{text-align:right;font-weight:650}.notice{color:#888;font-size:10px;line-height:1.7;text-align:center;padding:20px 8px}nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e7e7e7;display:grid;grid-template-columns:repeat(3,1fr);padding:8px 0 calc(7px + env(safe-area-inset-bottom));z-index:5}nav button{border:0;background:none;color:#888;font-size:10px;padding:3px}nav .ni{font-size:21px;display:block;margin-bottom:4px}nav button.active{color:#f58220;font-weight:750}button{cursor:pointer}
 </style>
 </head>
 <body>
-<header>
- <div class="topline"><div class="brand"><div class="logo">7</div><div>Myセブン銀行</div></div></div>
- <div class="tagline">いつもの口座を、かんたんチェック</div>
- <div class="demo">PERSONAL DEMO</div>
-</header>
-<main>
-<section id="home" class="page active">
- <div class="balance-card">
-  <div class="label">普通預金残高</div>
-  <div class="balance"><small>¥</small>72,800</div>
-  <div class="accountline">
-   <div><div class="label">口座番号</div><div class="accountnum">2284117</div></div>
-   <div class="type-pill">普通預金</div>
-  </div>
- </div>
- <div class="heading">クイックメニュー</div>
- <div class="shortcuts">
-  <button class="shortcut" onclick="showPage('history')"><span class="ico">↕</span>入出金明細</button>
-  <button class="shortcut" onclick="showPage('account')"><span class="ico">▤</span>口座情報</button>
-  <button class="shortcut" onclick="showPage('history')"><span class="ico">⌕</span>明細を確認</button>
- </div>
- <div class="heading">最近の入出金 <span style="float:right;color:#e87510;font-size:11px;font-weight:600" onclick="showPage('history')">すべて見る ›</span></div>
- <div class="panel" id="recent"></div>
+<header><div class="top"><div class="brand"><div class="logo">7</div><span>Myセブン銀行</span></div><div class="menu">☰</div></div><div class="sub">個人用アカウント画面</div><div class="demo">PERSONAL DEMO ・ 非公式</div></header>
+<div class="hero"><div class="hello">おかえりなさい</div><div class="hero-title">口座の状況</div></div>
+<div class="money-card"><div class="caption">普通預金残高</div><div class="balance"><small>¥</small>72,800</div><div class="line"><div><div class="caption">口座番号</div><div class="number">2284117</div></div><span class="pill">普通預金</span></div></div>
+<div class="main">
+<section class="page active" id="home">
+<div class="title">お取引メニュー</div>
+<div class="quick"><button onclick="showPage('history')"><div class="ico">↕</div>入出金明細</button><button onclick="showPage('account')"><div class="ico">▤</div>口座情報</button><button onclick="showPage('history')"><div class="ico">⌕</div>取引を確認</button></div>
+<div class="title">最近の入出金 <span onclick="showPage('history')" style="float:right;color:#e87512;font-size:11px">すべて見る ›</span></div><div class="panel" id="recent"></div>
+<div class="title">お知らせ</div><div class="panel" style="padding:16px;font-size:12px;line-height:1.8">ご利用状況をこちらから確認できます。<div style="color:#888;font-size:10px;margin-top:5px">※デモ用のお知らせです</div></div>
 </section>
-<section id="history" class="page">
- <div class="heading">入出金明細</div>
- <div class="sectionnote">最近のお取引・デモ表示</div>
- <div class="panel" id="alltx"></div>
-</section>
-<section id="account" class="page">
- <div class="heading">口座情報</div>
- <div class="panel">
-  <div class="info"><span class="label">銀行名</span><strong>セブン銀行（デモ表示）</strong></div>
-  <div class="info"><span class="label">支店名</span><strong>マイ支店（仮）</strong></div>
-  <div class="info"><span class="label">口座種別</span><strong>普通預金</strong></div>
-  <div class="info"><span class="label">口座番号</span><strong>2284117</strong></div>
-  <div class="info"><span class="label">口座名義</span><strong>ご本人名義（仮）</strong></div>
- </div>
-</section>
-<div class="notice">個人用デモ画面です。セブン銀行の公式アプリではなく、実際の口座・残高・取引とは連携していません。</div>
-</main>
-<nav>
- <button class="active" data-page="home" onclick="showPage('home')"><span class="navico">⌂</span>ホーム</button>
- <button data-page="history" onclick="showPage('history')"><span class="navico">↕</span>入出金明細</button>
- <button data-page="account" onclick="showPage('account')"><span class="navico">▤</span>口座情報</button>
-</nav>
+<section class="page" id="history"><div class="title">入出金明細</div><div style="font-size:11px;color:#888;margin:0 3px 12px">最近のお取引・デモ表示</div><div class="panel" id="alltx"></div></section>
+<section class="page" id="account"><div class="title">口座情報</div><div class="panel"><div class="info"><span class="caption">銀行名</span><strong>セブン銀行（デモ）</strong></div><div class="info"><span class="caption">支店名</span><strong>マイ支店（仮）</strong></div><div class="info"><span class="caption">口座種別</span><strong>普通預金</strong></div><div class="info"><span class="caption">口座番号</span><strong>2284117</strong></div><div class="info"><span class="caption">口座名義</span><strong>ご本人名義（仮）</strong></div></div></section>
+<div class="notice">個人用デモ画面です。セブン銀行の公式アプリではありません。表示される残高・取引は架空のサンプルで、実際の銀行口座とは連携していません。</div>
+</div>
+<nav><button class="active" data-page="home" onclick="showPage('home')"><span class="ni">⌂</span>ホーム</button><button data-page="history" onclick="showPage('history')"><span class="ni">↕</span>入出金明細</button><button data-page="account" onclick="showPage('account')"><span class="ni">▤</span>口座情報</button></nav>
 <script>
-const transactions=[
-{icon:"▣",name:"ATM支払",date:"2026/10/06",amount:"−¥100,000",type:""},
-{icon:"▣",name:"ATM支払",date:"2026/10/03",amount:"−¥430,000",type:""},
-{icon:"▣",name:"ATM支払",date:"2026/10/02",amount:"−¥100,000",type:""},
-{icon:"▣",name:"ATM支払",date:"2026/10/02",amount:"−¥98,000",type:""},
-{icon:"↙",name:"振込 ヘヤ ショウタ",date:"2026/09/30",amount:"+¥777,000",type:"plus"}
-];
-function txHTML(t){return '<div class="tx"><div class="txicon">'+t.icon+'</div><div class="txinfo"><div class="txname">'+t.name+'</div><div class="txdate">'+t.date+'</div></div><div class="amount '+t.type+'">'+t.amount+'</div></div>'}
-document.getElementById('recent').innerHTML=transactions.slice(0,3).map(txHTML).join('');
-document.getElementById('alltx').innerHTML=transactions.map(txHTML).join('');
-function showPage(id){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
-window.scrollTo(0,0);
-}
+const ts=[{i:"▣",n:"ATM支払",d:"2026/10/06",a:"−¥100,000"},{i:"▣",n:"ATM支払",d:"2026/10/03",a:"−¥430,000"},{i:"▣",n:"ATM支払",d:"2026/10/02",a:"−¥100,000"},{i:"▣",n:"ATM支払",d:"2026/10/02",a:"−¥98,000"},{i:"↙",n:"振込 ヘヤ ショウタ",d:"2026/09/30",a:"+¥777,000",p:true}];
+function row(t){return '<div class="tx"><div class="txico">'+t.i+'</div><div class="txinfo"><div class="txname">'+t.n+'</div><div class="date">'+t.d+'</div></div><div class="amount '+(t.p?'plus':'')+'">'+t.a+'</div></div>'}
+document.getElementById('recent').innerHTML=ts.slice(0,3).map(row).join('')+'<div class="more" onclick="showPage(\'history\')">入出金明細をもっと見る　›</div>';
+document.getElementById('alltx').innerHTML=ts.map(row).join('');
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));window.scrollTo(0,0)}
 </script>
 </body>
 </html>
