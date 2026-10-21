@@ -1,36 +1,303 @@
+
+
 <!DOCTYPE html>
+
 <html lang="ja">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+
 <meta name="theme-color" content="#f58220">
-<title>Myセブン銀行</title>
+
+<title>マイセブン銀行</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f3f4f6;color:#252525;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif}header{background:#fff;padding:14px 18px 17px;border-bottom:1px solid #eee}.top{display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:9px;font-size:20px;font-weight:800}.logo{width:38px;height:38px;border-radius:9px;background:#fff;color:#f58220;border:3px solid #f58220;display:grid;place-items:center;font-size:23px;font-weight:900}.menu{font-size:24px;color:#555}.sub{font-size:10px;color:#888;margin-top:4px;margin-left:47px}.demo{font-size:9px;color:#a95008;background:#fff1e3;padding:5px 8px;border-radius:5px;margin-top:12px;display:inline-block;letter-spacing:.5px}.hero{background:linear-gradient(125deg,#f79327,#f58220 60%,#ed6e0b);padding:20px 18px 30px;color:white}.hello{font-size:13px;opacity:.95}.hero-title{font-size:16px;font-weight:700;margin-top:6px}.money-card{margin:-16px 14px 0;background:#fff;border-radius:16px;padding:20px 18px;box-shadow:0 5px 18px #0000000c;position:relative}.caption{font-size:12px;color:#777}.balance{font-size:34px;font-weight:750;letter-spacing:-.7px;margin:8px 0 17px}.balance small{font-size:17px}.line{border-top:1px solid #eee;padding-top:14px;display:flex;justify-content:space-between;align-items:center}.number{font-size:20px;font-weight:750;letter-spacing:1px;margin-top:4px}.pill{background:#fff0e2;color:#d96d12;font-size:11px;padding:6px 9px;border-radius:5px}.main{padding:0 14px 100px}.title{font-size:16px;font-weight:750;margin:23px 3px 12px}.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.quick button{border:0;background:#fff;border-radius:13px;padding:14px 3px 13px;box-shadow:0 2px 9px #00000006;color:#333;font-size:11px}.ico{width:36px;height:36px;margin:0 auto 9px;border-radius:50%;background:#fff0e4;color:#e87512;display:grid;place-items:center;font-size:21px}.panel{background:white;border-radius:14px;padding:0 14px;box-shadow:0 2px 8px #00000004}.tx{display:flex;align-items:center;gap:11px;padding:14px 0;border-bottom:1px solid #eee}.tx:last-child{border-bottom:0}.txico{width:39px;height:39px;flex-shrink:0;background:#fff0e4;color:#e87512;border-radius:50%;display:grid;place-items:center;font-size:18px}.txinfo{flex:1;min-width:0}.txname{font-size:13px;font-weight:650}.date{font-size:10px;color:#888;margin-top:5px}.amount{font-size:13px;font-weight:750;white-space:nowrap}.plus{color:#13815b}.more{text-align:center;color:#e87512;padding:14px;font-size:12px;font-weight:650}.page{display:none}.page.active{display:block}.info{display:flex;justify-content:space-between;gap:12px;padding:17px 0;border-bottom:1px solid #eee;font-size:13px}.info:last-child{border:0}.info strong{text-align:right;font-weight:650}.notice{color:#888;font-size:10px;line-height:1.7;text-align:center;padding:20px 8px}nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e7e7e7;display:grid;grid-template-columns:repeat(3,1fr);padding:8px 0 calc(7px + env(safe-area-inset-bottom));z-index:5}nav button{border:0;background:none;color:#888;font-size:10px;padding:3px}nav .ni{font-size:21px;display:block;margin-bottom:4px}nav button.active{color:#f58220;font-weight:750}button{cursor:pointer}
+
+*{box-sizing:border-box}
+
+body{margin:0;background:#f4f5f7;color:#292929;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+
+header{background:white;padding:15px 18px;display:flex;align-items:center;gap:11px}
+
+.logo{width:43px;height:43px}
+
+.brand{font-size:19px;font-weight:800}
+
+.sub{font-size:10px;color:#888;letter-spacing:1px}
+
+.menu{margin-left:auto;border:0;background:white;font-size:25px}
+
+.demo{padding:8px 18px;background:#fff7ef;color:#a75a19;font-size:10px}
+
+.hero{padding:24px 20px 42px;background:linear-gradient(120deg,#ff9b3d,#f58220);color:white}
+
+.hero small{opacity:.9}
+
+.hero h2{margin:8px 0 0;font-size:23px}
+
+.balance{position:relative;margin:-25px 14px 0;padding:20px;background:white;border-radius:16px;box-shadow:0 5px 20px #0000000b}
+
+.label{color:#777;font-size:12px}
+
+.money{font-size:35px;font-weight:800;margin:12px 0 20px}
+
+.money small{font-size:18px}
+
+.account{border-top:1px solid #eee;padding-top:15px;display:flex;justify-content:space-between;align-items:center}
+
+.number{font-size:21px;font-weight:750;letter-spacing:1px;margin-top:5px}
+
+.pill{font-size:10px;color:#d96e14;background:#fff0e3;border-radius:6px;padding:6px 9px}
+
+main{padding:0 14px 100px}
+
+.heading{font-size:16px;font-weight:750;margin:24px 3px 13px}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+
+.tile{background:white;border:0;border-radius:13px;padding:15px 2px;min-width:0}
+
+.tile svg{width:25px;height:25px;color:#e97816;margin-bottom:9px}
+
+.tile b{display:block;font-size:11px}
+
+.tile small{display:block;color:#999;font-size:9px;margin-top:5px}
+
+.panel{background:white;border-radius:14px;padding:0 14px}
+
+.tx{display:flex;align-items:center;gap:11px;padding:14px 0;border-bottom:1px solid #eee}
+
+.tx:last-child{border:0}
+
+.txicon{width:40px;height:40px;border-radius:12px;background:#fff0e3;color:#e97816;display:grid;place-items:center;flex-shrink:0}
+
+.txicon svg{width:22px;height:22px}
+
+.txinfo{flex:1;min-width:0}
+
+.txname{font-size:12px;font-weight:700}
+
+.date{font-size:10px;color:#999;margin-top:5px}
+
+.amount{font-size:12px;font-weight:750;white-space:nowrap}
+
+.plus{color:#15845d}
+
+.more{width:100%;padding:15px;background:white;border:0;color:#df7518;font-weight:700;font-size:12px}
+
+.page{display:none}.page.active{display:block}
+
+.info{display:flex;justify-content:space-between;gap:12px;padding:17px 0;border-bottom:1px solid #eee;font-size:12px}
+
+.info span{color:#888}.info strong{text-align:right}
+
+nav{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid #e8e8e8;display:grid;grid-template-columns:repeat(3,1fr);padding:9px 0 calc(7px + env(safe-area-inset-bottom))}
+
+nav button{border:0;background:white;color:#999;font-size:10px}
+
+nav svg{width:22px;height:22px;display:block;margin:0 auto 4px}
+
+nav button.active{color:#f58220;font-weight:700}
+
+.notice{text-align:center;color:#999;font-size:10px;line-height:1.8;padding:22px 5px}
+
+.toast{display:none;position:fixed;bottom:85px;left:50%;transform:translateX(-50%);background:#333;color:white;padding:12px 16px;border-radius:9px;z-index:5;white-space:nowrap}
+
+@media(min-width:600px){body{max-width:520px;margin:auto}nav{max-width:520px;left:50%;transform:translateX(-50%)}}
+
 </style>
+
 </head>
+
 <body>
-<header><div class="top"><div class="brand"><div class="logo">7</div><span>Myセブン銀行</span></div><div class="menu">☰</div></div><div class="sub">個人用アカウント画面</div><div class="demo">PERSONAL DEMO ・ 非公式</div></header>
-<div class="hero"><div class="hello">おかえりなさい</div><div class="hero-title">口座の状況</div></div>
-<div class="money-card"><div class="caption">普通預金残高</div><div class="balance"><small>¥</small>72,800</div><div class="line"><div><div class="caption">口座番号</div><div class="number">2284117</div></div><span class="pill">普通預金</span></div></div>
-<div class="main">
-<section class="page active" id="home">
-<div class="title">お取引メニュー</div>
-<div class="quick"><button onclick="showPage('history')"><div class="ico">↕</div>入出金明細</button><button onclick="showPage('account')"><div class="ico">▤</div>口座情報</button><button onclick="showPage('history')"><div class="ico">⌕</div>取引を確認</button></div>
-<div class="title">最近の入出金 <span onclick="showPage('history')" style="float:right;color:#e87512;font-size:11px">すべて見る ›</span></div><div class="panel" id="recent"></div>
-<div class="title">お知らせ</div><div class="panel" style="padding:16px;font-size:12px;line-height:1.8">ご利用状況をこちらから確認できます。<div style="color:#888;font-size:10px;margin-top:5px">※デモ用のお知らせです</div></div>
+
+<header>
+
+<svg class="logo" viewBox="0 0 48 48" aria-label="オレンジ・緑・赤のロゴ">
+
+  <rect width="48" height="48" rx="9" fill="#ffffff"/>
+
+  <path d="M7 9H41V16H26L17 39H9L20 16H7Z" fill="#f58220"/>
+
+  <path d="M7 20H18L15 27H7Z" fill="#00865a"/>
+
+  <path d="M24 20H40V27H21Z" fill="#e53935"/>
+
+</svg>
+
+<rect width="48" height="48" rx="11" fill="#fff0e3"/>
+
+<path d="M8 9H40V16H27L17 39H9L20 16H8Z" fill="#f58220"/>
+
+<path d="M25 23H38V30H22Z" fill="#f58220"/>
+
+</svg>
+
+<div><div class="brand">マイセブン銀行</div><div class="sub">MY BANKING</div></div>
+
+<button class="menu" onclick="toast('個人用デモ画面です')" aria-label="メニュー">☰</button>
+
+</header>
+
+<div class="demo">● 個人用デモ画面｜公式アプリではありません</div>
+
+<section class="hero"><small>おかえりなさい</small><h2>口座状況</h2><div style="font-size:12px;margin-top:7px">いつもの口座を、ここで確認。</div></section>
+
+<section class="balance">
+
+<div style="display:flex;justify-content:space-between;align-items:center"><span class="label">普通預金残高</span><span class="pill">普通預金</span></div>
+
+<div class="money"><small>￥</small>72,800</div>
+
+<div class="account"><div><div class="label">口座番号</div><div class="number">2284117</div></div><span class="pill">口座情報</span></div>
+
 </section>
-<section class="page" id="history"><div class="title">入出金明細</div><div style="font-size:11px;color:#888;margin:0 3px 12px">最近のお取引・デモ表示</div><div class="panel" id="alltx"></div></section>
-<section class="page" id="account"><div class="title">口座情報</div><div class="panel"><div class="info"><span class="caption">銀行名</span><strong>セブン銀行（デモ）</strong></div><div class="info"><span class="caption">支店名</span><strong>マイ支店（仮）</strong></div><div class="info"><span class="caption">口座種別</span><strong>普通預金</strong></div><div class="info"><span class="caption">口座番号</span><strong>2284117</strong></div><div class="info"><span class="caption">口座名義</span><strong>ご本人名義（仮）</strong></div></div></section>
-<div class="notice">個人用デモ画面です。セブン銀行の公式アプリではありません。表示される残高・取引は架空のサンプルで、実際の銀行口座とは連携していません。</div>
+
+<main>
+
+<section id="home" class="page active">
+
+<div class="heading">お取引メニュー</div>
+
+<div class="grid">
+
+<button class="tile" onclick="showPage('history')">
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M6 10l6-6 6 6M18 14l-6 6-6-6"/></svg>
+
+<b>入出金明細</b><small>取引を確認</small></button>
+
+<button class="tile" onclick="showPage('account')">
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+
+<b>口座情報</b><small>登録情報を確認</small></button>
+
+<button class="tile" onclick="showPage('history')">
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4M8 10h5"/></svg>
+
+<b>利用履歴</b><small>取引履歴を見る</small></button>
+
 </div>
-<nav><button class="active" data-page="home" onclick="showPage('home')"><span class="ni">⌂</span>ホーム</button><button data-page="history" onclick="showPage('history')"><span class="ni">↕</span>入出金明細</button><button data-page="account" onclick="showPage('account')"><span class="ni">▤</span>口座情報</button></nav>
+
+<div class="heading">最近の入出金</div>
+
+<div class="panel" id="recent"></div>
+
+<button class="more" onclick="showPage('history')">すべての明細を見る　›</button>
+
+</section>
+
+<section id="history" class="page">
+
+<div class="heading">入出金明細</div>
+
+<div class="panel" id="alltx"></div>
+
+</section>
+
+<section id="account" class="page">
+
+<div class="heading">口座情報</div>
+
+<div class="panel" style="padding:0 16px">
+
+<div class="info"><span>銀行名</span><strong>セブン銀行（デモ表示）</strong></div>
+
+<div class="info"><span>支店名</span><strong>マイ支店（仮）</strong></div>
+
+<div class="info"><span>口座種別</span><strong>普通預金</strong></div>
+
+<div class="info"><span>口座番号</span><strong>2284117</strong></div>
+
+<div class="info"><span>口座名義</span><strong>ご本人名義（仮）</strong></div>
+
+</div>
+
+
+
+</section>
+
+<div class="notice">マイセブン銀行｜個人用。</div>
+
+</main>
+
+<nav>
+
+<button class="active" data-page="home" onclick="showPage('home')">
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 11 9-8 9 8M5 10v10h14V10M9 20v-6h6v6"/></svg>ホーム</button>
+
+<button data-page="history" onclick="showPage('history')">
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h14v17H5zM8 8h8M8 12h8M8 16h5"/></svg>入出金明細</button>
+
+<button data-page="account" onclick="showPage('account')">
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 3-8 8-8s8 3 8 8"/></svg>口座情報</button>
+
+</nav>
+
+<div class="toast" id="toastbox"></div>
+
 <script>
-const ts=[{i:"▣",n:"ATM支払",d:"2026/10/06",a:"−¥100,000"},{i:"▣",n:"ATM支払",d:"2026/10/03",a:"−¥430,000"},{i:"▣",n:"ATM支払",d:"2026/10/02",a:"−¥100,000"},{i:"▣",n:"ATM支払",d:"2026/10/02",a:"−¥98,000"},{i:"↙",n:"振込 ヘヤ ショウタ",d:"2026/09/30",a:"+¥777,000",p:true}];
-function row(t){return '<div class="tx"><div class="txico">'+t.i+'</div><div class="txinfo"><div class="txname">'+t.n+'</div><div class="date">'+t.d+'</div></div><div class="amount '+(t.p?'plus':'')+'">'+t.a+'</div></div>'}
-document.getElementById('recent').innerHTML=ts.slice(0,3).map(row).join('')+'<div class="more" onclick="showPage(\'history\')">入出金明細をもっと見る　›</div>';
-document.getElementById('alltx').innerHTML=ts.map(row).join('');
-function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));window.scrollTo(0,0)}
+
+const transactions=[
+
+{n:"ATM支払",d:"2026/10/06",a:"−￥100,000"},
+
+{n:"ATM支払",d:"2026/10/03",a:"−￥430,000"},
+
+{n:"ATM支払",d:"2026/10/02",a:"−￥100,000"},
+
+{n:"ATM支払",d:"2026/10/02",a:"−￥98,000"},
+
+{n:"振込 ヘヤ ショウタ",d:"2026/09/30",a:"+￥777,000",p:true}
+
+];
+
+function row(t){
+
+const icon=t.p?'<path d="M12 19V5M6 11l6-6 6 6"/>' : '<path d="M12 5v14M6 13l6 6 6-6"/>';
+
+return '<div class="tx"><div class="txicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+icon+'</svg></div><div class="txinfo"><div class="txname">'+t.n+'</div><div class="date">'+t.d+'</div></div><div class="amount '+(t.p?'plus':'')+'">'+t.a+'</div></div>';
+
+}
+
+document.getElementById("recent").innerHTML=transactions.slice(0,3).map(row).join("");
+
+document.getElementById("alltx").innerHTML=transactions.map(row).join("");
+
+function showPage(id){
+
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+
+document.getElementById(id).classList.add("active");
+
+document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===id));
+
+window.scrollTo({top:0,behavior:"smooth"});
+
+}
+
+let toastTimer;
+
+function toast(message){
+
+const el=document.getElementById("toastbox");
+
+el.textContent=message;el.style.display="block";
+
+clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.style.display="none",2000);
+
+}
+
 </script>
+
 </body>
+
 </html>
