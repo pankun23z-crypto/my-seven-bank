@@ -1,27 +1,119 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>マイセブン銀行</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f58220">
+<title>Myセブン銀行</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f5f6f8;color:#333;font-family:-apple-system,BlinkMacSystemFont,sans-serif}header{background:#f58220;color:white;padding:22px 18px;font-size:21px;font-weight:bold}main{max-width:520px;margin:auto;padding:16px 14px 90px}.card{background:white;border-radius:16px;padding:20px;margin-bottom:14px}.muted{font-size:13px;color:#777}.balance{font-size:34px;font-weight:bold;margin:10px 0}.title{font-size:17px;font-weight:bold;margin-bottom:14px}.tx{display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-top:1px solid #eee;font-size:14px}.date{font-size:12px;color:#777;margin-top:5px}.amount{font-weight:bold;white-space:nowrap}.plus{color:#17834a}nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:white;border-top:1px solid #eee}nav button{flex:1;border:0;background:white;padding:12px 2px;color:#777;font-size:12px}nav button.active{color:#f58220;font-weight:bold}.ico{display:block;font-size:20px;margin-bottom:4px}.info{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #eee;font-size:14px}.notice{font-size:12px;line-height:1.7;color:#777;background:#fff8f1;padding:14px;border-radius:12px}.hidden{display:none}
+*{box-sizing:border-box}
+:root{--orange:#f58220;--ink:#242424;--muted:#898989;--line:#eeeeee}
+body{margin:0;background:#f5f6f8;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+header{background:linear-gradient(135deg,#ff9b35,#f58220 65%,#e96b0b);color:white;padding:22px 21px 29px;border-radius:0 0 27px 27px}
+.brand{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:800;letter-spacing:-.5px}
+.logo{width:39px;height:39px;background:#fff;color:#e87510;border-radius:12px;display:grid;place-items:center;font-size:23px;font-weight:900;box-shadow:0 3px 8px #a74b1725}
+.tagline{font-size:11px;margin-top:7px;opacity:.92;letter-spacing:.3px}
+.topline{display:flex;justify-content:space-between;align-items:center}
+.demo{font-size:9px;letter-spacing:1px;border:1px solid #ffffff70;border-radius:20px;padding:6px 8px;margin-top:17px;display:inline-block}
+main{padding:0 16px 105px}
+.balance-card{position:relative;background:#fff;margin:-12px 0 0;padding:21px 20px 19px;border-radius:20px;box-shadow:0 7px 25px #2020200b}
+.label{font-size:12px;color:var(--muted)}
+.balance{font-size:35px;font-weight:780;letter-spacing:-1px;margin:8px 0 20px}
+.balance small{font-size:18px;margin-right:2px}
+.accountline{border-top:1px solid #f0f0f0;padding-top:15px;display:flex;justify-content:space-between;align-items:center}
+.accountnum{font-size:21px;font-weight:750;letter-spacing:1px;margin-top:4px}
+.type-pill{font-size:11px;color:#d86b10;background:#fff1e4;padding:7px 10px;border-radius:20px}
+.heading{font-size:16px;font-weight:750;margin:24px 2px 13px}
+.shortcuts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.shortcut{border:0;background:#fff;border-radius:16px;min-height:94px;padding:14px 3px;color:#333;font-size:11px;box-shadow:0 3px 12px #00000005}
+.shortcut .ico{width:35px;height:35px;border-radius:12px;background:#fff0e3;color:#e87817;display:grid;place-items:center;margin:0 auto 9px;font-size:20px;font-weight:700}
+.panel{background:#fff;border-radius:17px;padding:2px 15px;box-shadow:0 3px 12px #00000004}
+.tx{display:flex;align-items:center;gap:11px;padding:15px 0;border-bottom:1px solid #f0f0f0}
+.tx:last-child{border-bottom:0}
+.txicon{width:41px;height:41px;flex-shrink:0;border-radius:50%;background:#fff1e5;color:#e87817;display:grid;place-items:center;font-size:19px}
+.txinfo{flex:1;min-width:0}
+.txname{font-size:13px;font-weight:650;line-height:1.5}
+.txdate{font-size:10px;color:#969696;margin-top:5px}
+.amount{font-size:13px;font-weight:750;white-space:nowrap}
+.plus{color:#18845b}
+.page{display:none}
+.page.active{display:block}
+.info{display:flex;justify-content:space-between;gap:10px;padding:17px 0;border-bottom:1px solid #f0f0f0;font-size:13px}
+.info:last-child{border:0}
+.info strong{text-align:right;font-weight:650}
+.notice{font-size:10px;line-height:1.8;color:#999;text-align:center;padding:19px 6px}
+.sectionnote{font-size:11px;color:#888;margin:-4px 2px 13px}
+nav{position:fixed;z-index:5;left:0;right:0;bottom:0;background:#ffffffed;backdrop-filter:blur(14px);border-top:1px solid #eee;display:grid;grid-template-columns:repeat(3,1fr);padding:9px 0 calc(8px + env(safe-area-inset-bottom))}
+nav button{border:0;background:transparent;color:#999;font-size:10px;padding:3px 0}
+nav .navico{display:block;font-size:21px;margin-bottom:4px}
+nav button.active{color:var(--orange);font-weight:750}
+button{cursor:pointer}
 </style>
 </head>
 <body>
-<header>マイセブン銀行</header>
+<header>
+ <div class="topline"><div class="brand"><div class="logo">7</div><div>Myセブン銀行</div></div></div>
+ <div class="tagline">いつもの口座を、かんたんチェック</div>
+ <div class="demo">PERSONAL DEMO</div>
+</header>
 <main>
-<section id="home"><div class="card"><div class="muted">普通預金残高</div><div class="balance">72,800 円</div><div class="muted">口座残高</div></div><div class="card"><div class="title">最近の入出金</div><div id="recent"></div><button onclick="show('transactions')" style="width:100%;padding:12px;border:0;border-radius:10px;background:#fff4e9;color:#d96b0b">入出金明細をすべて見る ›</button></div></section>
-<section id="transactions" class="hidden"><div class="card"><div class="title">入出金明細</div><div id="alltx"></div></div></section>
-<section id="account" class="hidden"><div class="card"><div class="title">口座情報</div><div class="info"><span>口座種別</span><b>普通預金</b></div><div class="info"><span>支店名</span><b>マイ支店（仮）</b></div><div class="info"><span>口座番号</span><b>****1234</b></div><div class="info"><span>口座名義</span><b>ご本人名義</b></div></div><div class="notice">このページは個人用の画面デモです。セブン銀行の公式アプリではなく、実際の銀行口座や金融機関とは接続されていません。表示内容はサンプルデータです。</div></section>
+<section id="home" class="page active">
+ <div class="balance-card">
+  <div class="label">普通預金残高</div>
+  <div class="balance"><small>¥</small>72,800</div>
+  <div class="accountline">
+   <div><div class="label">口座番号</div><div class="accountnum">2284117</div></div>
+   <div class="type-pill">普通預金</div>
+  </div>
+ </div>
+ <div class="heading">クイックメニュー</div>
+ <div class="shortcuts">
+  <button class="shortcut" onclick="showPage('history')"><span class="ico">↕</span>入出金明細</button>
+  <button class="shortcut" onclick="showPage('account')"><span class="ico">▤</span>口座情報</button>
+  <button class="shortcut" onclick="showPage('history')"><span class="ico">⌕</span>明細を確認</button>
+ </div>
+ <div class="heading">最近の入出金 <span style="float:right;color:#e87510;font-size:11px;font-weight:600" onclick="showPage('history')">すべて見る ›</span></div>
+ <div class="panel" id="recent"></div>
+</section>
+<section id="history" class="page">
+ <div class="heading">入出金明細</div>
+ <div class="sectionnote">最近のお取引・デモ表示</div>
+ <div class="panel" id="alltx"></div>
+</section>
+<section id="account" class="page">
+ <div class="heading">口座情報</div>
+ <div class="panel">
+  <div class="info"><span class="label">銀行名</span><strong>セブン銀行（デモ表示）</strong></div>
+  <div class="info"><span class="label">支店名</span><strong>マイ支店（仮）</strong></div>
+  <div class="info"><span class="label">口座種別</span><strong>普通預金</strong></div>
+  <div class="info"><span class="label">口座番号</span><strong>2284117</strong></div>
+  <div class="info"><span class="label">口座名義</span><strong>ご本人名義（仮）</strong></div>
+ </div>
+</section>
+<div class="notice">個人用デモ画面です。セブン銀行の公式アプリではなく、実際の口座・残高・取引とは連携していません。</div>
 </main>
-<nav><button class="active" data-page="home" onclick="show('home')"><span class="ico">⌂</span>ホーム</button><button data-page="transactions" onclick="show('transactions')"><span class="ico">▤</span>入出金明細</button><button data-page="account" onclick="show('account')"><span class="ico">◎</span>口座情報</button></nav>
+<nav>
+ <button class="active" data-page="home" onclick="showPage('home')"><span class="navico">⌂</span>ホーム</button>
+ <button data-page="history" onclick="showPage('history')"><span class="navico">↕</span>入出金明細</button>
+ <button data-page="account" onclick="showPage('account')"><span class="navico">▤</span>口座情報</button>
+</nav>
 <script>
-const txs=[["ATM支払","2026/10/06","−100,000円",false],["ATM支払","2026/10/03","−430,000円",false],["ATM支払","2026/10/02","−100,000円",false],["ATM支払","2026/10/02","−98,000円",false],["振込 ヘヤ ショウタ","2026/09/30","+777,000円",true]];
-function row(t){return '<div class="tx"><div><b>'+t[0]+'</b><div class="date">'+t[1]+'</div></div><div class="amount '+(t[3]?'plus':'')+'">'+t[2]+'</div></div>'}
-document.getElementById('recent').innerHTML=txs.slice(0,3).map(row).join('');
-document.getElementById('alltx').innerHTML=txs.map(row).join('');
-function show(p){['home','transactions','account'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==p));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===p));window.scrollTo(0,0)}
+const transactions=[
+{icon:"▣",name:"ATM支払",date:"2026/10/06",amount:"−¥100,000",type:""},
+{icon:"▣",name:"ATM支払",date:"2026/10/03",amount:"−¥430,000",type:""},
+{icon:"▣",name:"ATM支払",date:"2026/10/02",amount:"−¥100,000",type:""},
+{icon:"▣",name:"ATM支払",date:"2026/10/02",amount:"−¥98,000",type:""},
+{icon:"↙",name:"振込 ヘヤ ショウタ",date:"2026/09/30",amount:"+¥777,000",type:"plus"}
+];
+function txHTML(t){return '<div class="tx"><div class="txicon">'+t.icon+'</div><div class="txinfo"><div class="txname">'+t.name+'</div><div class="txdate">'+t.date+'</div></div><div class="amount '+t.type+'">'+t.amount+'</div></div>'}
+document.getElementById('recent').innerHTML=transactions.slice(0,3).map(txHTML).join('');
+document.getElementById('alltx').innerHTML=transactions.map(txHTML).join('');
+function showPage(id){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
+window.scrollTo(0,0);
+}
 </script>
 </body>
 </html>
